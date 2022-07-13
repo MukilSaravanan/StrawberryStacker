@@ -21,7 +21,11 @@ Write a Python script for detecting ArUco markers. The resulting image must have
 - Orientation of the ArUco in degrees in GREEN colour
 
 ## Test Images
+
+### Image 1
 ![Image 1](../pics/task_1/test_image1.png)
+
+### Image 2
 
 ![Image 2](../pics/task_1/test_image2.png)
 
@@ -95,14 +99,14 @@ corners, ids, _ = aruco.detectMarkers(gray, aruco_dict, parameters = parameters)
 ## Results
 
 ### Image 1:
-![Image 1](../pics/task_1/result_image_1.png)
+![Image 1](../pics/task_1/result_image1.jpg)
 
 ### Image 2:
-![Image 2](../pics/task_1/result_image_2.png)
+![Image 2](../pics/task_1/result_image2.jpg)
 
 ### Video:
 
-
+https://user-images.githubusercontent.com/47444101/178815672-65883e76-a28a-498e-9271-a96d955a18d0.mp4
 
 ## Task 1.2
 
