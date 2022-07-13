@@ -148,7 +148,7 @@ make px4_sitl_default gazebo
 Now you should see a window pop out and a drone in the middle of the environment. After verifying, press Control-C in the command line to quit Gazebo and close the window.
 
 ### PX4 Enviroment:
-![PX4 Environment](../pics/task_0/px4_setup.png)
+![PX4 Environment](../pics/task_0/px4_setup.jpeg)
 
 Build you workspace:
 ```bash
