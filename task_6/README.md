@@ -76,3 +76,7 @@ This project is an abstraction of a strawberry farm. It is the harvesting scenar
 - After launching the scripts/*rosnodes*, the drones should takeoff and start their delivery jobs. The spawning of the strawberry boxes will be in a pseudo random order and their location will be shared on the *rostopic* as soon as it spawns
 - The *eDrones* are allowed to pick any strawberry boxes in any order, there is no specific requirement to follow any kind of first come first serve pattern
 - The *eDrones* have to pick and place as many number of boxes in 5 minutes run time
+
+### Quick Navigation
+- [Up] [Task 5 - Theme Implementation](../task_5/README.md)
+- [Down] [Main Repository](../README.md)
