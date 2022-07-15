@@ -17,11 +17,6 @@ class image_proc():
     def image_callback(self,data):
         self.img=self.bridge.imgmsg_to_cv2(data,'bgr8')
         temp=aruco_library.detect_ArUco(self.img)
-        cv2.imshow("Dotted Image",self.img)
-        
-        if temp==1:
-            print(1)
-            return
         self.marker_msg.id=int(list(temp.keys())[0])
         corners=temp[self.marker_msg.id][0]
         self.marker_msg.x=(corners[0][0] + corners[2][0])/2 
