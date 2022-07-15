@@ -78,5 +78,5 @@ This project is an abstraction of a strawberry farm. It is the harvesting scenar
 - The *eDrones* have to pick and place as many number of boxes in 5 minutes run time
 
 ### Quick Navigation
-- [Up] [Task 5 - Theme Implementation](../task_5/README.md)
-- [Down] [Main Repository](../README.md)
+- [Up] [Task 5 - Theme Implementation](../task_5/)
+- [Down] [Main Repository](../)
