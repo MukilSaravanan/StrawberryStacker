@@ -96,6 +96,12 @@ parameters = aruco.DetectorParameters_create()
 ```python
 corners, ids, _ = aruco.detectMarkers(gray, aruco_dict, parameters = parameters)
 ```
+## Procedure
+Run the following command
+```bash
+cd ~/catkin_ws/src/strawberry_stacker/task_1/scripts
+python3 aruco_detection.py
+```
 ## Results
 
 ### Image 1:
@@ -129,7 +135,6 @@ https://user-images.githubusercontent.com/47444101/178815672-65883e76-a28a-498e-
 
 ## Procedure
 
-- Complete the boiler plate script provided to you in the scripts folder
 - Launch the Gazebo world by typing the following command
 ```bash
 roslaunch task_1 task1_2.launch
