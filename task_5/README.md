@@ -64,3 +64,6 @@ Or any other method that might help you to deliver maximum number of boxes in 5 
 
 ## Results
 
+### Quick Navigation
+- [Up] [Task 4 - Pick and Place Using Multiple Drones](../task_4/README.md)
+- [Down] [Task 6 - Final Theme Implementation](../task_6/README.md)

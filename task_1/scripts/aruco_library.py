@@ -24,6 +24,7 @@ def detect_ArUco(img):
 	Detected_ArUco_markers = {}
 
 	gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
 	aruco_dict = aruco.getPredefinedDictionary( aruco.DICT_5X5_250 )
 	parameters=aruco.DetectorParameters_create()
 	corners,ids,_=aruco.detectMarkers(gray,aruco_dict,parameters=parameters)

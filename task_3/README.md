@@ -79,3 +79,8 @@ roslaunch task_3 task3_2.launch
 ## Result
 
 https://user-images.githubusercontent.com/47444101/179043970-8a60ed13-dfcf-4a49-a357-10e476f7a532.mp4
+
+### Quick Navigation
+- [Up] [Task 2 - Getting Started with PX4](../task_2/README.md)
+- [Down] [Task 4 - Pick and Place Using Multiple Drones](../task_4/README.md)
+
