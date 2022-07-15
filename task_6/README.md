@@ -79,4 +79,4 @@ This project is an abstraction of a strawberry farm. It is the harvesting scenar
 
 ### Quick Navigation
 - [Up] [Task 5 - Theme Implementation](../task_5/)
-- [Down] [Main Repository](../)
+- [Down] [Main Repository](https://github.com/MukilSaravanan/StrawberryStacker)
