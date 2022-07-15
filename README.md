@@ -4,8 +4,10 @@
 
 Strawberry Stacker is one of the themes in 10th edition of [E-Yantra Robotics Competition](https://portal.e-yantra.org/) 2021-2022 , an international robotics outreach program funded by the Ministry of Education and hosted at the [Indian Institute of Technology, Bombay](https://www.iitbombay.org/)
 
-Our team consisting of 3 interdisciplinary members ( [Mukil Saravanan](https://www.linkedin.com/in/mukil-saravanan-18800285/), [Sanjay Kumar M](https://www.linkedin.com/in/sanjay-kumar-m-6877601ba/), [HariRaj Anandarajan](https://www.linkedin.com/in/hari-raj-anandarajan-65a35119b/) ) from the Government College of Technology, Coimbatore has secured an overall 11th position among 152 international teams the theme. 
-  
+Our team consisting of 3 interdisciplinary members ( [Mukil Saravanan*](https://www.linkedin.com/in/mukil-saravanan-18800285/), [Sanjay Kumar M*](https://www.linkedin.com/in/sanjay-kumar-m-6877601ba/), [HariRaj Anandarajan](https://www.linkedin.com/in/hari-raj-anandarajan-65a35119b/) ) from the Government College of Technology, Coimbatore has secured an overall 11th position among 152 international teams the theme. 
+
+*main contributors 
+
 ## Theme description
 Commercial strawberry harvesting necessitates expert labour. The picker must swiftly identify any ripe strawberries on a plant, select them, and pack the berries into boxes all at the same time. This is labour for the employees as well as bad for the farm's overall efficiency. 
 

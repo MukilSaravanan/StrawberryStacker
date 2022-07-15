@@ -154,5 +154,5 @@ To record ROS messages enable recording via rosbag utility:
 roslaunch task_1 task1_2.launch record:="true" rec_name:="aruco_detection.bag"
 ```
 ### Quick Navigation
-- [Up] [Task 0 - Software Setup](../task_0/README.md)
-- [Down] [Task 2 - Getting Started with PX4](../task_2/README.md)
+- [Up] [Task 0 - Software Setup](../task_0/)
+- [Down] [Task 2 - Getting Started with PX4](../task_2/)

@@ -170,5 +170,5 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/catkin_ws/src/PX4-Autopilot/Tools/si
 ```
 
 ### Quick Navigation
-- [Up] [Main Repository](../README.md)
-- [Down] [Task 1 - Getting Started with ArUco and ROS](../task_1/README.md)
+- [Up] [Main Repository](../)
+- [Down] [Task 1 - Getting Started with ArUco and ROS](../task_1/)

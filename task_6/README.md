@@ -77,6 +77,15 @@ This project is an abstraction of a strawberry farm. It is the harvesting scenar
 - The *eDrones* are allowed to pick any strawberry boxes in any order, there is no specific requirement to follow any kind of first come first serve pattern
 - The *eDrones* have to pick and place as many number of boxes in 5 minutes run time
 
+### 5. Our Approach
+- Our strategy focuses on minimising the time of delivery and the flying cost. 
+- For finding x position of aruco (since y,z are known for the row),computationally light weight bitwise_and mask of fixed dimension is used. With the knowledge of the work field, edrone0, edrone1 prefer minimum, maximum row number respectively at the instance of message from spawn_info. If a drone finds a red box in row number<=7 (least distance in y direction), it updates the aruco's x location in the waiting list (except when there is only one red box to account for the flying cost) and delivers blue boxes one by one in the row to the respective trucks and continues scanning the row from x position of lastly found blue box. 
+- This strategy applies for other drone with red, blue box as first and second preferences for delivery. Shared dictionary containing box count, lastly found x position, working status flag on a particular row is used for seamless working of multiple drones. 
+- When all first preference boxes are delivered, it proceeds with delivering of waiting list boxes. If there is no work for a drone, it goes into loiter mode (waiting for the boxes) for a predetermined time.
+
+### 6. Future Scope
+- For faster and robust delivery, rather setting the condition row_num<=7 (for the sake of limitated time of the competition), one can choose which boxes to be preferred by making decision based on the distance between the aruco box and the destination truck.
+
 ### Quick Navigation
-- [Up] [Task 5 - Theme Implementation](../task_5/README.md)
-- [Down] [Main Repository](../README.md)
+- [Up] [Task 5 - Theme Implementation](../task_5/)
+- [Down] [Main Repository](https://github.com/MukilSaravanan/StrawberryStacker)
