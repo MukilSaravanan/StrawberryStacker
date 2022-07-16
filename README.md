@@ -66,4 +66,8 @@ The video/image solutions are also added in the README files.
 - [Task 6 - Final Theme Implementation](task_6)
 
 ## Acknowledgement
-Anitha K
+- Premnath
+- Venkat Raman
+- Hyden A
+- Sabarish R
+- Anitha K
