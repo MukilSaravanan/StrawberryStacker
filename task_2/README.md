@@ -92,7 +92,7 @@ Once the simulation window launches, you should see a drone in the gazebo enviro
 
 ## Result
 
-[task2_2.webm](https://user-images.githubusercontent.com/47444101/179355806-df1e35af-8294-448c-bd36-81019b02817d.webm)
+[task2_2.webm](https://user-images.githubusercontent.com/47444101/179368538-db0f92ba-86c2-4c12-a4de-1dc2e96d4af8.webm)
 
 ### Quick Navigation
 - [Up] [Task 1 - Getting Started with ArUco and ROS](../task_1/)
