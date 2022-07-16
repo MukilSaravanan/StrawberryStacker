@@ -4,6 +4,8 @@
 
 Strawberry Stacker is one of the themes in 10th edition of [E-Yantra Robotics Competition](https://portal.e-yantra.org/) 2021-2022 , an international robotics outreach program funded by the Ministry of Education and hosted at the [Indian Institute of Technology, Bombay](https://www.iitbombay.org/)
 
+This repository provides solutions to the tasks for the Strawberry Stacker theme. 
+
 Our team consisting of 3 interdisciplinary members ( [Mukil Saravanan*](https://www.linkedin.com/in/mukil-saravanan-18800285/), [Sanjay Kumar M*](https://www.linkedin.com/in/sanjay-kumar-m-6877601ba/), [HariRaj Anandarajan](https://www.linkedin.com/in/hari-raj-anandarajan-65a35119b/) ) from the Government College of Technology, Coimbatore has secured an overall 11th position among 152 international teams the theme. 
 
 *main contributors 
@@ -56,12 +58,12 @@ We will use Gazebo simulator, a robotics simulator, where the simulated farm and
 For each task package, README files are provided which give details about the problem statement and the task specifications. 
 The video/image solutions are also added in the README files.
 - [Task 0 - Software Setup](task_0/README.md)
-- [Task 1 - Getting Started with ArUco and ROS](task_1/README.md)
-- [Task 2 - Getting Started with PX4](task_2/README.md)
-- [Task 3 - Pick and Place](task_3/README.md)
-- [Task 4 - Pick and Place Using Multiple Drones](task_4/README.md)
-- [Task 5 - Theme Implementation](task_5/README.md)
-- [Task 6 - Final Theme Implementation](task_6/README.md)
+- [Task 1 - Getting Started with ArUco and ROS](task_1)
+- [Task 2 - Getting Started with PX4](task_2)
+- [Task 3 - Pick and Place](task_3)
+- [Task 4 - Pick and Place Using Multiple Drones](task_4/)
+- [Task 5 - Theme Implementation](task_5)
+- [Task 6 - Final Theme Implementation](task_6)
 
 ## Acknowledgement
 Anitha K

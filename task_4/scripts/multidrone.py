@@ -13,7 +13,9 @@ from cv_bridge import CvBridge, CvBridgeError
 from cv2 import aruco
 
 class Drone:
+
     def __init__(self,drone_num):
+        """Creates Drone Functionality"""
         self.drone_num=drone_num 
         self.drone_name='edrone'+str(drone_num)
         self.rate=0
@@ -24,13 +26,15 @@ class Drone:
         self.ofb_ctl=self.offboard_control(self)
 
     def set_rate(self,rate):
+        """Sets rate (in Hz)"""
         self.rate=rospy.Rate(rate)
         rospy.loginfo("Rate  has been set")
 
     class offboard_control:
         def __init__(self,outer):
+            """Permits the usage of outer class objects"""
+
             self.outer=outer
-            # rospy.init_node('multi_drone_'+str(self.outer.drone_num))
 
             #publishers
             self.local_pos_pub=rospy.Publisher('/edrone'+str(self.outer.drone_num)+'/mavros/setpoint_position/local',PoseStamped,queue_size=10)
@@ -42,6 +46,7 @@ class Drone:
             rospy.Subscriber('/edrone'+str(self.outer.drone_num)+'/gripper_check',String,self.outer.gripperMt.gripperCb)
 
         def setArm(self):
+            """Arms the drone"""
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming')
             try:
                 armService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming',mavros_msgs.srv.CommandBool)
@@ -50,6 +55,7 @@ class Drone:
                 print('Service arm call failed: %s',e)
 
         def setDisarm(self):
+            """Disarms the drone"""
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming')
             try:
                 armService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming',mavros_msgs.srv.CommandBool)
@@ -58,6 +64,7 @@ class Drone:
                 print('Service disarm call failed: %s',e) 
 
         def offboard_set_mode(self):
+            """Sets the drone to OFFBOARD mode"""
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/set_mode')
             try:
                 flightModeService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/set_mode',mavros_msgs.srv.SetMode)
@@ -66,6 +73,7 @@ class Drone:
                 print('Service set_mode call failed: %s. Offboard mode could not be set.',e)
 
         def autoland_set_mode(self):
+            """Performs autolanding and disarming"""
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/set_mode')
             try:
                 flightModeService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/set_mode',mavros_msgs.srv.SetMode)
@@ -74,17 +82,20 @@ class Drone:
                 print('Service autoland call failed: %s',e)
 
     class stateMoniter:
-
+        """Performs State based operations"""
         def __init__(self,outer):
+            """Initializes a State object"""
             self.outer=outer
             self.state=State()
         
         def stateCb(self,msg):
+            """Callback function for the rostopic /mavros/state"""
             self.state=msg
 
     class psMoniter:
-
+        """Performs Pose Stamped based operations"""
         def __init__(self,outer):
+            """Initializes a PoseStamped object"""
             self.outer=outer
             self.ps=PoseStamped()
             self.pos=PoseStamped()
@@ -101,10 +112,12 @@ class Drone:
             self.del_z=0
 
         def psCb(self,msg):
+            """Callback functio for the rostopic /mavros/local_position/pose"""
             self.ps=msg
              
 
         def is_reached(self,other,thresh,extra_precision_z=0):
+            """Checks whether the drone has reached the currently publishing setpoint"""
             self.del_x=abs(other.pose.position.x - self.ps.pose.position.x)
             self.del_y=abs(other.pose.position.y - self.ps.pose.position.y)
             self.del_z=abs(other.pose.position.z - self.ps.pose.position.z)
@@ -140,7 +153,9 @@ class Drone:
         
 
     class image_proc():
+        """Performs Image processing related operations"""
         def __init__(self,outer):
+            """Initializes the objects necessary for image processing"""
             self.outer=outer
             self.image_sub=rospy.Subscriber('edrone'+str(self.outer.drone_num)+'/camera/image_raw',Image,self.image_callback)
             self.img=np.empty([])
@@ -148,7 +163,7 @@ class Drone:
             self.aruco_position=PoseStamped()
 
         def detect_ArUco(self,img):
-	 
+            """Performs ArUco marker detection"""
             Detected_ArUco_markers = {}
             
             gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -165,6 +180,10 @@ class Drone:
             return Detected_ArUco_markers
 
         def image_callback(self,data):
+            """Callback function for the rostopic /mavros/camera/image_raw 
+               Peforms bitwise Mask (horizontally centered wrt to the drone's frame of reference) 
+            """
+
             self.img=self.bridge.imgmsg_to_cv2(data,'bgr8')
             mask=np.zeros((400,400),dtype='uint8')
             #cv2.rectangle(mask,(185,190),(215,230),255,-1)
@@ -177,20 +196,25 @@ class Drone:
                 rospy.loginfo("Aruco marker is at {}".format(self.aruco_position))
                 
         def img_show(self):
+            """Displays the drone's camera stream"""
+
             cv2.imshow("Drone image stream",self.img)
             if cv2.waitKey(1) & 0xFF == ord('q'):
-                exit
+                return
             
     class gripperMoniter:
-
+        """Performs operations related to the rosservice /active_gripper"""
         def __init__(self,outer):
+            """Initializes the gripper class"""
             self.outer=outer
             self.status="False"
 
         def gripperCb(self,msg):
+            """Callback function for the rostopic /edrone/gripper_check"""
             self.status=msg.data
 
         def gripper_action(self,action):
+            """Activates or Deactivates the drone's gripper"""
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/activate_gripper')
             try:
                 gripperActionService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/activate_gripper',Gripper)
@@ -204,8 +228,13 @@ class Drone:
             pass
 def edrone0_main(edrone0):
 
-    # creating drone objects
-    # edrone0=Drone(0)
+    """
+    * Function Name: edrone0_main
+    * Input: edrone0,shared_dict
+    * Output: None
+    * Logic: Instructions for the edrone0
+    * Example Call: edrone0_main(edrone0,shared_dict)
+    """
      
     rospy.init_node('multi_drone_1')
     edrone0.set_rate(30)
@@ -295,8 +324,14 @@ def edrone0_main(edrone0):
             break
 
 def edrone1_main(edrone1):
-    # creating drone objects
-    # edrone1=Drone(1)
+    """
+    * Function Name: edrone1_main
+    * Input: edrone1,shared_dict
+    * Output: None
+    * Logic: Instructions for the edrone1
+    * Example Call: edrone1_main(edrone1,shared_dict)
+    """
+
     rospy.init_node('multi_drone_2')
 
     edrone1.set_rate(30)
@@ -386,22 +421,24 @@ def edrone1_main(edrone1):
             break
 def main():
 
-    # rospy.init_node('multi_drone')
-    
+    #Creating Drone instances
     edrone0=Drone(0)
     edrone1=Drone(1)
  
+    #Assigning different cores for different drones (Multiprocessing)
     process0=Process(target=edrone0_main,args=(edrone0,))
     process1=Process(target=edrone1_main,args=(edrone1,))
 
+    #Starting the processes 
     process0.start()
     process1.start()
      
-
+    #Joining the processes
     process0.join()
     process1.join()        
 
 if __name__=='__main__':
+    """Main function"""
     try:
         main()
     except rospy.ROSInitException as e:

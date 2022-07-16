@@ -4,7 +4,6 @@
 '''
 This is a boiler plate script that contains hint about different services that are to be used
 to complete the task.
-Use this code snippet in your code or you can also continue adding your code in the same file
 
 
 This python file runs a ROS-node of name offboard_control which controls the drone in offboard mode. 
@@ -211,9 +210,6 @@ def main():
 
 
     
-        # local_pos_pub.publish(pos)
-        # local_vel_pub.publish(vel)
-        # rate.sleep()
 
 if __name__ == '__main__':
     try:

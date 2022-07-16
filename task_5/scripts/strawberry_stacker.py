@@ -16,14 +16,7 @@ from cv_bridge import CvBridge, CvBridgeError
 from cv2 import aruco
 
 
-"""
-* Team Id : 1929
-* Author List : Mukil Saravanan, Sanjay Kumar M, Hariraj A, Anitha K
-* Filename: SS_1929_strawberry_stacker.py
-* Theme: Strawberry Stacker
-* Functions: edrone0_main,edrone1_main
-* Global Variables: none
-"""
+ 
 
 class Drone:
     """Creates Drone Functionality"""
@@ -189,7 +182,7 @@ class Drone:
 
             cv2.imshow("[edrone"+self.outer.drone_name+" Image Stream"+']',self.img)
             if cv2.waitKey(1) & 0xFF == ord('q'):
-                exit
+                return
             
     class gripperMoniter:
         """Performs operations related to the rosservice /active_gripper"""
@@ -480,15 +473,7 @@ def edrone0_main(edrone0,shared_dict):
             # if edrone0_sp[i]!=last_sp:
             rospy.loginfo('['+ edrone0.drone_name+']: '+"Published setpoint {}".format(tuple(edrone0_sp[i])))
             rospy.loginfo("i:{}, spf:{}, vel_flag:{}".format(i,setpoint_finished,vel_flag))
-                # last_sp=edrone0_sp[i]
-            # else:
-                # print("[edrone0]: last_sp:{} \n edrone_sp:{}".format(last_sp,edrone0_sp[i]))
-
-        # if i==3 and vel_flag==1:
-           
-            # rospy.loginfo('['+edrone0.drone_name+']: '+'velocity command')
-            # edrone0_sp[3]=edrone0.psMt.goto(edrone0_sp[i],0,True)
-
+                 
         if setpoint_finished==3:
             # To get the drone on aruco
 
@@ -834,13 +819,7 @@ def edrone1_main(edrone1,shared_dict):
             # if edrone1_sp[i]!=last_sp:
             rospy.loginfo('['+ edrone1.drone_name+']: '+"Published setpoint {}".format(tuple(edrone1_sp[i])))
             rospy.loginfo("[edrone1]: i:{},spf:{},vel_flag:{}".format(i,setpoint_finished,vel_flag))
-                # last_sp=edrone1_sp[i]
-
-        # if i==3 and vel_flag==1:
-           
-            # rospy.loginfo('['+edrone1.drone_name+']: '+'velocity command')
-            # edrone1_sp[3]=edrone1.psMt.goto(edrone1_sp[i],0,True)
-      
+          
 
         if setpoint_finished==3:
             # To get the drone on aruco
