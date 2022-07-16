@@ -83,7 +83,12 @@ This project is an abstraction of a strawberry farm. It is the harvesting scenar
 - This strategy applies for other drone with red, blue box as first and second preferences for delivery. Shared dictionary containing box count, lastly found x position, working status flag on a particular row is used for seamless working of multiple drones. 
 - When all first preference boxes are delivered, it proceeds with delivering of waiting list boxes. If there is no work for a drone, it goes into loiter mode (waiting for the boxes) for a predetermined time.
 
-### 6. Future Scope
+### 6. Result
+
+[![task6](https://img.youtube.com/vi/ugrn-_nQuyI/0.jpg)](https://www.youtube.com/watch?v=ugrn-_nQuyI)
+
+
+### 7. Future Scope
 - For faster and robust delivery, rather setting the condition row_num<=7 (for the sake of limitated time of the competition), one can choose which boxes to be preferred by making decision based on the distance between the aruco box and the destination truck.
 
 ### Quick Navigation
