@@ -16,18 +16,12 @@ from cv_bridge import CvBridge, CvBridgeError
 from cv2 import aruco
 
 
-"""
-* Team Id : 1929
-* Author List : Mukil Saravanan, Sanjay Kumar M, Hariraj A, Anitha K
-* Filename: SS_1929_strawberry_stacker.py
-* Theme: Strawberry Stacker
-* Functions: edrone0_main,edrone1_main
-* Global Variables: none
-"""
+ 
 
 class Drone:
     """Creates Drone Functionality"""
     def __init__(self,drone_num):
+
         self.drone_num=drone_num 
         self.drone_name='edrone'+str(drone_num)
         self.stateMt=self.stateMoniter(self)
@@ -43,6 +37,7 @@ class Drone:
 
     def set_rate(self,rate,vel_rate=50):
         """Sets rate (in Hz)"""
+
         self.rate=rospy.Rate(rate)
         self.vel_rate=rospy.Rate(vel_rate)
         rospy.loginfo('['+self.drone_name+']: '+"Rate  has been set")
@@ -52,10 +47,12 @@ class Drone:
 
         def __init__(self,outer):
             """Permits the usage of outer class objects"""
+
             self.outer=outer
 
         def setArm(self):
             """Arms the drone"""
+
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming')
             try:
                 armService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming',mavros_msgs.srv.CommandBool)
@@ -65,6 +62,7 @@ class Drone:
 
         def setDisarm(self):
             """Disarms the drone"""
+
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming')
             try:
                 armService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/cmd/arming',mavros_msgs.srv.CommandBool)
@@ -74,6 +72,7 @@ class Drone:
 
         def offboard_set_mode(self):
             """Sets the drone to OFFBOARD mode"""
+
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/set_mode')
             try:
                 flightModeService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/set_mode',mavros_msgs.srv.SetMode)
@@ -83,6 +82,7 @@ class Drone:
 
         def autoland_set_mode(self):
             """Performs autolanding and disarming"""
+
             rospy.wait_for_service('edrone'+str(self.outer.drone_num)+'/mavros/set_mode')
             try:
                 flightModeService=rospy.ServiceProxy('edrone'+str(self.outer.drone_num)+'/mavros/set_mode',mavros_msgs.srv.SetMode)
@@ -282,19 +282,7 @@ def edrone0_main(edrone0,shared_dict):
     def spawnCb(msg):
         # global shared_dict
         dummy(msg)
-        # edrone0.rand_spwn.box_count+=1
-        # shared_dict[-1][0]+=1
-        # print("Inside s_cb",id(shared_dict))
         
-        # print("total count",shared_dict[-1][0])
-        # if msg.data not in shared_dict :
-        #     shared_dict[msg.data]=[0,0,0]
-        # shared_dict[msg.data][0]+=1   #dict_name={-1:[total_count,0,0],row_num:[box_count,lastly_found,working status]}
-            
-        # print("AFTER GLOBAL",shared_dict)
-        
-        # rospy.loginfo_once("spawn_row_msg:",shared_dict)
-    # spawnCb()
     rospy.Subscriber('/spawn_info',UInt8,spawnCb)
 
 
@@ -484,15 +472,7 @@ def edrone0_main(edrone0,shared_dict):
             # if edrone0_sp[i]!=last_sp:
             rospy.loginfo('['+ edrone0.drone_name+']: '+"Published setpoint {}".format(tuple(edrone0_sp[i])))
             rospy.loginfo("i:{}, spf:{}, vel_flag:{}".format(i,setpoint_finished,vel_flag))
-                # last_sp=edrone0_sp[i]
-            # else:
-                # print("[edrone0]: last_sp:{} \n edrone_sp:{}".format(last_sp,edrone0_sp[i]))
-
-        # if i==3 and vel_flag==1:
-           
-            # rospy.loginfo('['+edrone0.drone_name+']: '+'velocity command')
-            # edrone0_sp[3]=edrone0.psMt.goto(edrone0_sp[i],0,True)
-
+                 
         if setpoint_finished==3:
             # To get the drone on aruco
 
@@ -518,15 +498,6 @@ def edrone0_main(edrone0,shared_dict):
             else:
                 # rospy.logwarn_once('['+edrone0.drone_name+']: '+'Gripper=false')
                 gripper_failed+=1
-                # if (gripper_failed==800):
-                #     rospy.logwarn_once("[edrone0]: Triggering gripper failed failsafe")
-                #     rospy.logwarn_once("edrone0_sp={}".format(edrone0_sp[2]))
-                #     i=2
-                #     setpoint_finished=2
-                #     vel_flag=1
-                #     history=-1
-                #     gripper_failed=0
-                #     shared_dict[edrone0.rand_spwn.nth_row][0]+=1
                 continue
             
             #Setting destination truck
@@ -835,10 +806,7 @@ def edrone1_main(edrone1,shared_dict):
             rospy.loginfo("[edrone1]: i:{},spf:{},vel_flag:{}".format(i,setpoint_finished,vel_flag))
                 # last_sp=edrone1_sp[i]
 
-        # if i==3 and vel_flag==1:
-           
-            # rospy.loginfo('['+edrone1.drone_name+']: '+'velocity command')
-            # edrone1_sp[3]=edrone1.psMt.goto(edrone1_sp[i],0,True)
+         
       
 
         if setpoint_finished==3:
@@ -863,15 +831,7 @@ def edrone1_main(edrone1,shared_dict):
             else:
                 # rospy.logwarn_once('['+edrone1.drone_name+']: '+'Gripper=false'
                 gripper_failed+=1
-                # if (gripper_failed==800):
-                #     rospy.logwarn_once("[edrone1]: triggering gripper failed failsafe")
-                #     rospy.logwarn_once("edrone1_sp={}".format(edrone1_sp[2]))
-                #     i=2
-                #     setpoint_finished=2
-                #     vel_flag=1
-                #     history=-1
-                #     gripper_failed=0
-                #     shared_dict[edrone1.rand_spwn.nth_row][0]+=1
+                
                 continue
 
             #Setting destination truck
