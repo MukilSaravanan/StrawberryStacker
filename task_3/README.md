@@ -40,6 +40,7 @@ the drone.
 
 ## Result
 
+[![task3_1.mp4](https://img.youtube.com/vi/YIRRQZaZVXk/0.jpg)](https://www.youtube.com/watch?v=YIRRQZaZVXk)
 
 ## Task 3.2
 
