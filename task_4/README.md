@@ -78,6 +78,8 @@ roslaunch task_4 task4.launch
 
 ## Result
 
+[![task3_1.mp4](https://img.youtube.com/vi/eAMUjqVvw2s/0.jpg)](https://www.youtube.com/watch?v=eAMUjqVvw2s)
+
 ### Quick Navigation
 - [Up] [Task 3 - Pick and Place](../task_3/)
 - [Down] [Task 5 - Theme Implementation](../task_5/)
