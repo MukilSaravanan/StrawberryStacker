@@ -5,7 +5,7 @@
 
 import numpy as np
 import cv2
-from cv2 import aruco as aruco
+import cv2.aruco as aruco
 import sys
 import math
 import time
@@ -104,12 +104,12 @@ def mark_ArUco(img,Detected_ArUco_markers,ArUco_marker_angles):
 		midpoint_top_X=int(corners[0][0]+corners[1][0])//2
 		midpoint_top_Y=int(corners[0][1]+corners[1][1])//2
 		midpoint_top=(midpoint_top_X,midpoint_top_Y)
-		cv2.circle(img,(corners[0][0],corners[0][1]),6,(125,125,125),-1)
-		cv2.circle(img,(corners[1][0],corners[1][1]),6,(0,255,0),-1)
-		cv2.circle(img,(corners[2][0],corners[2][1]),6,(180,105,255),-1)
-		cv2.circle(img,(corners[3][0],corners[3][1]),6,(255,255,255),-1)
-		cv2.circle(img,center,6,(0,0,255),-1)
-		cv2.line(img,center,(midpoint_top),(255,0,0),4)
+		img=cv2.circle(img,(int(corners[0][0]),int(corners[0][1])),6,(125,125,125),-1)
+		img=cv2.circle(img,(int(corners[1][0]),int(corners[1][1])),6,(0,255,0),-1)
+		img=cv2.circle(img,(int(corners[2][0]),int(corners[2][1])),6,(180,105,255),-1)
+		img=cv2.circle(img,(int(corners[3][0]),int(corners[3][1])),6,(255,255,255),-1)
+		img=cv2.circle(img,center,6,(0,0,255),-1)
+		img=cv2.line(img,center,(midpoint_top),(255,0,0),4)
 		
 
 
@@ -120,6 +120,5 @@ def mark_ArUco(img,Detected_ArUco_markers,ArUco_marker_angles):
 	return img
 	
     
-
 
 

@@ -13,17 +13,16 @@ from aruco_library import *
 
  
 
-video=cv2.VideoCapture("test_video.mp4")
+video=cv2.VideoCapture("task_1/scripts/test_video.mp4")
 fps=int(video.get(cv2.CAP_PROP_FPS))
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 frame_width = int(video.get(3))
 frame_height = int(video.get(4))
 size = (frame_width, frame_height)
-out = cv2.VideoWriter('outpu.avi', fourcc, 10.0, size)
+out = cv2.VideoWriter('task_1/scripts/outpu.avi', fourcc, 10.0, size)
 while(True):
     res,frame=video.read()
     time.sleep(1/fps)
-
     detected_aruco_markers=detect_ArUco(frame)
     if detected_aruco_markers==1:
         continue
