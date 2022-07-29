@@ -63,6 +63,7 @@ Or any other method that might help you to deliver maximum number of boxes in 5 
 - Run your python script in a separate terminal to start the task.
 
 ## Results
+[![task6](https://img.youtube.com/vi/8N-to9hClRo/0.jpg)](https://www.youtube.com/watch?v=8N-to9hClRo)
 
 ### Quick Navigation
 - [Up] [Task 4 - Pick and Place Using Multiple Drones](../task_4/)
