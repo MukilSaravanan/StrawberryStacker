@@ -69,6 +69,7 @@ roslaunch task_2 task2_1.launch
 
 ## Result
 
+[task2_1.webm](https://user-images.githubusercontent.com/47444101/181810841-7f42037d-302f-42b3-8bea-398cc9b73766.webm)
 
 ## Task 2.2
 
