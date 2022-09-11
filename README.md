@@ -6,7 +6,7 @@ Strawberry Stacker is one of the themes in 10th edition of [E-Yantra Robotics Co
 
 This repository provides solutions to the tasks for the Strawberry Stacker theme. 
 
-Our team consisting of 3 interdisciplinary members ( [Mukil Saravanan*](https://www.linkedin.com/in/mukil-saravanan-18800285/), [Sanjay Kumar M*](https://www.linkedin.com/in/sanjay-kumar-m-6877601ba/), [HariRaj Anandarajan](https://www.linkedin.com/in/hari-raj-anandarajan-65a35119b/) ) from the Government College of Technology, Coimbatore has secured an overall 11th position among 152 international teams the theme. 
+Our team consisting of 3 interdisciplinary members ( [Mukil Saravanan*](https://www.linkedin.com/in/mukil-saravanan-18800285/), [Sanjay Kumar M*](https://www.linkedin.com/in/sanjay-kumar-m-6877601ba/), [HariRaj Anandarajan](https://www.linkedin.com/in/hari-raj-anandarajan-65a35119b/) ) from the Government College of Technology, Coimbatore has secured an overall 11th position among 152 international teams in the theme. 
 
 *main contributors 
 
